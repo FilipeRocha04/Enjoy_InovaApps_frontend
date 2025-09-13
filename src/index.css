@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Disruption Community Design System - Luxury Corporate Network */
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+    --surface: 0 0% 12%;
+    --surface-elevated: 0 0% 16%;
+
+    /* Copper/Bronze Accent Colors */
+    --copper: 25 85% 55%;
+    --copper-light: 25 85% 65%;
+    --copper-dark: 25 85% 45%;
+    --copper-muted: 25 40% 30%;
+
+    /* Card System */
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+    --card-border: 0 0% 20%;
+
+    /* Member Level Colors */
+    --member-basic: 0 0% 40%;
+    --member-socio: 25 85% 55%;
+    --member-infinity: 280 100% 70%;
+
+    /* Interactive Elements */
+    --primary: 25 85% 55%;
+    --primary-foreground: 0 0% 8%;
+    --primary-hover: 25 85% 65%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-hover: 0 0% 25%;
+
+    /* Status & Feedback */
+    --success: 120 60% 50%;
+    --warning: 45 90% 60%;
+    --destructive: 0 75% 55%;
+    --info: 210 100% 60%;
+
+    /* Text Hierarchy */
+    --text-primary: 0 0% 98%;
+    --text-secondary: 0 0% 70%;
+    --text-muted: 0 0% 50%;
+    --text-disabled: 0 0% 30%;
+
+    /* Borders & Inputs */
+    --border: 0 0% 20%;
+    --border-focus: 25 85% 55%;
+    --input: 0 0% 16%;
+    --input-border: 0 0% 25%;
+
+    /* Interactive States */
+    --hover: 0 0% 16%;
+    --active: 0 0% 20%;
+    --focus: 25 85% 55%;
+
+    /* Gradients */
+    --gradient-copper: linear-gradient(135deg, hsl(25 85% 55%), hsl(25 85% 45%));
+    --gradient-copper-subtle: linear-gradient(135deg, hsl(25 40% 20%), hsl(25 40% 15%));
+    --gradient-infinity: linear-gradient(135deg, hsl(280 100% 70%), hsl(260 100% 60%));
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.15);
+    --shadow-lg: 0 8px 25px hsl(0 0% 0% / 0.25);
+    --shadow-copper: 0 4px 20px hsl(25 85% 55% / 0.3);
+
+    /* Layout */
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.15s ease-out;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-montserrat;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Member Level Badge Styles */
+  .member-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .member-badge--basic {
+    @apply bg-gray-800 text-gray-300 border border-gray-600;
+  }
+
+  .member-badge--socio {
+    background: var(--gradient-copper);
+    @apply text-black font-semibold shadow-lg;
+  }
+
+  .member-badge--infinity {
+    background: var(--gradient-infinity);
+    @apply text-white font-semibold shadow-lg;
+  }
+
+  /* Card Variants */
+  .card-member {
+    @apply bg-surface border border-card-border rounded-lg p-6 hover:border-copper/30 transition-all duration-300;
+  }
+
+  .card-member--socio {
+    @apply border-copper/50 shadow-copper/20;
+    box-shadow: var(--shadow-copper);
+  }
+
+  .card-member--infinity {
+    @apply border-purple-500/50;
+    box-shadow: 0 4px 20px hsl(280 100% 70% / 0.3);
+  }
+
+  /* Button Variants */
+  .btn-copper {
+    background: var(--gradient-copper);
+    @apply text-black font-semibold px-6 py-3 rounded-lg hover:shadow-copper transition-all duration-300;
+  }
+
+  .btn-outline-copper {
+    @apply border border-copper text-copper hover:bg-copper hover:text-black transition-all duration-300;
+  }
+
+  /* Input Styles */
+  .input-dark {
+    @apply bg-input border border-input-border text-foreground placeholder:text-text-muted;
+    @apply focus:border-copper focus:ring-2 focus:ring-copper/20 transition-all duration-200;
+  }
+
+  /* Chat Bubble Styles */
+  .chat-bubble-sent {
+    background: var(--gradient-copper);
+    @apply text-black rounded-2xl rounded-br-md px-4 py-2 max-w-xs ml-auto;
+  }
+
+  .chat-bubble-received {
+    @apply bg-surface text-foreground rounded-2xl rounded-bl-md px-4 py-2 max-w-xs;
+  }
+}
